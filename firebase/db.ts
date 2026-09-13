@@ -5,6 +5,7 @@ import {
   onSnapshot,
   runTransaction,
   addDoc,
+  setDoc,
   updateDoc,
   arrayUnion,
   arrayRemove,
@@ -62,7 +63,7 @@ export async function checkIn(userId: string, spotId: string) {
       isAvailable: next < capacity,
       lastUpdated: serverTimestamp(),
     });
-    tx.update(userRef, { currentCheckin: spotId });
+    tx.set(userRef, { currentCheckin: spotId }, { merge: true });
   });
 
   await addDoc(collection(db, 'checkins'), {
@@ -91,7 +92,7 @@ export async function checkOut(userId: string, spotId: string) {
       isAvailable: next < capacity,
       lastUpdated: serverTimestamp(),
     });
-    tx.update(userRef, { currentCheckin: null });
+    tx.set(userRef, { currentCheckin: null }, { merge: true });
   });
 
   await addDoc(collection(db, 'checkins'), {
@@ -104,7 +105,7 @@ export async function checkOut(userId: string, spotId: string) {
 
 export async function toggleFavorite(userId: string, spotId: string, isFav: boolean) {
   const userRef = doc(db, 'users', userId);
-  await updateDoc(userRef, {
+  await setDoc(userRef, {
     favoriteSpots: isFav ? arrayRemove(spotId) : arrayUnion(spotId),
-  });
+  }, { merge: true });
 }
