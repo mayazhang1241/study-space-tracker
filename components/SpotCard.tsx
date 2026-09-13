@@ -24,7 +24,7 @@ export function SpotCard({ spot, isFavorite, onToggleFavorite }: Props) {
           <Text style={styles.building}>{spot.building} · {spot.floor} floor</Text>
         </View>
         <TouchableOpacity onPress={() => onToggleFavorite(spot.id)} hitSlop={8}>
-          <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
+          <Text style={[styles.heart, isFavorite && styles.heartActive]}>{isFavorite ? '♥' : '♡'}</Text>
         </TouchableOpacity>
       </View>
 
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
   titleBlock: { flex: 1, marginRight: 8 },
   name: { color: '#F0F0F0', fontSize: 16, fontWeight: '700' },
   building: { color: '#9090A0', fontSize: 13, marginTop: 2 },
-  heart: { fontSize: 22, color: '#B3A369' },
+  heart: { fontSize: 22, color: '#9090A0' },
+  heartActive: { color: '#B3A369' },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

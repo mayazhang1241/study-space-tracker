@@ -58,7 +58,7 @@ export default function SpotDetailScreen() {
             <Text style={styles.floor}>{spot.floor} floor</Text>
           </View>
           <TouchableOpacity onPress={handleToggleFavorite} hitSlop={8}>
-            <Text style={styles.heart}>{isFavorite ? '♥' : '♡'}</Text>
+            <Text style={[styles.heart, isFavorite && styles.heartActive]}>{isFavorite ? '♥' : '♡'}</Text>
           </TouchableOpacity>
         </View>
 
@@ -142,7 +142,8 @@ const styles = StyleSheet.create({
   name: { color: '#F0F0F0', fontSize: 22, fontWeight: '800', marginBottom: 4 },
   building: { color: '#B3A369', fontSize: 15, fontWeight: '600' },
   floor: { color: '#9090A0', fontSize: 13, marginTop: 2 },
-  heart: { fontSize: 28, color: '#B3A369' },
+  heart: { fontSize: 28, color: '#9090A0' },
+  heartActive: { color: '#B3A369' },
   badgeRow: { marginBottom: 14, alignSelf: 'flex-start' },
   card: {
     backgroundColor: '#1E1E2E',

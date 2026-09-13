@@ -39,7 +39,6 @@ export default function FavoritesScreen() {
           contentContainerStyle={{ paddingVertical: 8, paddingBottom: 20 }}
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
-              <Text style={styles.emptyIcon}>♡</Text>
               <Text style={styles.emptyText}>No saved spots yet.</Text>
               <Text style={styles.emptyHint}>Tap the heart on any spot to save it.</Text>
             </View>
@@ -56,7 +55,6 @@ const styles = StyleSheet.create({
   title: { color: '#B3A369', fontSize: 24, fontWeight: '800' },
   subtitle: { color: '#9090A0', fontSize: 13, marginTop: 2 },
   emptyContainer: { alignItems: 'center', marginTop: 60 },
-  emptyIcon: { fontSize: 48, color: '#B3A369', marginBottom: 12 },
   emptyText: { color: '#F0F0F0', fontSize: 17, fontWeight: '600', marginBottom: 6 },
   emptyHint: { color: '#9090A0', fontSize: 14 },
 });

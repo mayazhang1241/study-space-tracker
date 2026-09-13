@@ -40,7 +40,6 @@ export default function LoginScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <View style={styles.inner}>
-        <Text style={styles.logo}>📚</Text>
         <Text style={styles.title}>GT Study Spots</Text>
         <Text style={styles.subtitle}>Find your space on campus</Text>
 
@@ -99,7 +98,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
     paddingBottom: 40,
   },
-  logo: { fontSize: 48, textAlign: 'center', marginBottom: 8 },
   title: {
     color: '#B3A369',
     fontSize: 28,
