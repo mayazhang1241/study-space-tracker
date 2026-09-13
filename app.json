@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Study Space Tracker",
+    "slug": "study-space-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "studyspacetracker",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#003057"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourname.studyspacetracker",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Used to sort study spots by distance from you."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#003057"
+      },
+      "permissions": ["ACCESS_FINE_LOCATION"],
+      "package": "com.yourname.studyspacetracker"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-location",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#B3A369"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
